@@ -1,0 +1,9 @@
+tank_radius = 0.06 #m
+cylinder_length = 0.75 #m
+meop = 7e6 #Pa
+safety_factor = 3
+polar_boss_opening = 0.019 #m
+fibre_allowable_stress = 3.5e9 #Pa
+translation_efficiency = 0.85
+fibre_volume_fraction = 0.72
+al_yield_strength = 2.7e8 #Pa
