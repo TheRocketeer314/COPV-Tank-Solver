@@ -3,14 +3,18 @@ import math
 import numpy as np
 from scipy.integrate import solve_ivp   
 import matplotlib.pyplot as plt
-from Inputs import tank_radius, meop, safety_factor, polar_boss_opening, fibre_allowable_stress, translation_efficiency, fibre_volume_fraction
+from Inputs import tank_radius, meop, safety_factor, polar_boss_opening, fibre_allowable_stress, translation_efficiency, fibre_volume_fraction, al_yield_strength, cylinder_length
+
+thickness = (meop * safety_factor *tank_radius) / (al_yield_strength * 2) #m
+
+tank_outer_radius = tank_radius + thickness #m
 
 max_design_pressure = meop * safety_factor #Pa
 
 hoop_load = max_design_pressure * tank_radius #Pa*m
 longitudinal_load = (max_design_pressure * tank_radius) / 2 #Pa*m
 
-wind_angle = math.asin(polar_boss_opening / tank_radius) #radians
+wind_angle = math.asin(polar_boss_opening / tank_outer_radius) #radians
 
 helical_wind_thickness = longitudinal_load / (fibre_allowable_stress * translation_efficiency * math.cos(wind_angle)**2) #m
 
@@ -43,5 +47,5 @@ print(f"total_wind_thickness: {total_wind_thickness:.4e} m ({total_wind_thicknes
 print(f"helical_fraction: {helical_layers_fraction:.4e} ({helical_layers_fraction * 100:.2f}%)")
 print(f"hoop_fraction: {hoop_layers_fraction:.4e} ({hoop_layers_fraction * 100:.2f}%)")
 
-sanity_check = 1.5 * max_design_pressure * tank_radius / (fibre_allowable_stress * translation_efficiency)
+sanity_check = 1.5 * max_design_pressure * tank_outer_radius / (fibre_allowable_stress * translation_efficiency)
 print(total_wind_thickness * fibre_volume_fraction, sanity_check)  # should match

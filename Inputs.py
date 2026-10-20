@@ -1,4 +1,4 @@
-tank_radius = 0.06 #m
+tank_radius = 0.055 #m
 cylinder_length = 0.75 #m
 meop = 7e6 #Pa
 safety_factor = 3

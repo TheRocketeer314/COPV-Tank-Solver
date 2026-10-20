@@ -11,9 +11,9 @@ def plot_dome_profile(x_in, r_in, x_out, r_out, x_stop, r_stop, x_cap, r_cap, x_
 
     ax1.plot(x_in,  r_in,  '-', color='tab:blue', linewidth=1.5, label='Inner surface')
     ax1.plot(x_out, r_out, '-', color='tab:red',  linewidth=1.5, label='Outer surface')
-    ax1.scatter([x_stop], [r_stop], color='black', zorder=5, label='Dome/cap handoff (inner)')
-    ax1.scatter([x_cap[-1]],     [r_cap[-1]],     color='green', zorder=5, label='Boss opening (inner)')
-    ax1.scatter([x_cap_out[-1]], [r_cap_out[-1]], color='green', marker='s', zorder=5, label='Boss opening (outer)')
+    ax1.scatter([x_stop], [r_stop], color='black', zorder=5, label='Dome/cap handoff (outer)')
+    ax1.scatter([x_cap[-1]],     [r_cap[-1]],     color='green', zorder=5, label='Boss opening (outer)')
+    ax1.scatter([x_cap_out[-1]], [r_cap_out[-1]], color='green', marker='s', zorder=5, label='Boss opening (inner)')
     ax1.set_xlabel('Axial position x (mm)')
     ax1.set_ylabel('Radius r (mm)')
     ax1.set_title('Dome profile (geodesic dome + spherical cap)')
