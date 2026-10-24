@@ -1,5 +1,4 @@
 import numpy as np
-import ezdxf
 from scipy.interpolate import splprep, splev
 
 SCALE = 1000.0      # 1000 if your CSV is in metres, 1.0 if already mm

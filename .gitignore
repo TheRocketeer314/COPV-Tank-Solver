@@ -2,3 +2,7 @@
 *.csv
 *.png
 __pycache__
+*.dxf
+*.log
+*.prt
+*.txt

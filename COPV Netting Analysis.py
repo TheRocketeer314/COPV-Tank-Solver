@@ -1,8 +1,5 @@
 #Netting Analysis for COPV Rocket tank
 import math
-import numpy as np
-from scipy.integrate import solve_ivp   
-import matplotlib.pyplot as plt
 from Inputs import tank_radius, meop, safety_factor, polar_boss_opening, fibre_allowable_stress, translation_efficiency, fibre_volume_fraction, al_yield_strength, cylinder_length
 
 thickness = (meop * safety_factor *tank_radius) / (al_yield_strength * 2) #m
@@ -48,4 +45,5 @@ print(f"helical_fraction: {helical_layers_fraction:.4e} ({helical_layers_fractio
 print(f"hoop_fraction: {hoop_layers_fraction:.4e} ({hoop_layers_fraction * 100:.2f}%)")
 
 sanity_check = 1.5 * max_design_pressure * tank_outer_radius / (fibre_allowable_stress * translation_efficiency)
-print(total_wind_thickness * fibre_volume_fraction, sanity_check)  # should match
+print(f"Sanity check: {sanity_check:.4e} m, values should match")
+print(f"Total wind thickness * fibre volume fraction: {total_wind_thickness * fibre_volume_fraction:.4e} m")  # should match

@@ -1,8 +1,6 @@
 import math
 import ezdxf
 import numpy as np
-from scipy.integrate import solve_ivp   
-import matplotlib.pyplot as plt
 from Inputs import tank_radius, meop, safety_factor, polar_boss_opening, al_yield_strength, cylinder_length
 import os
 from Plotting import plot_dome_profile, plot_tank_profile
@@ -15,6 +13,17 @@ DIRECTORY = os.getenv("DIRECTORY")  # Get the directory from environment variabl
 os.chdir(DIRECTORY)  # Change working directory to the specified path
 
 thickness = (meop * safety_factor * tank_radius) / (al_yield_strength * 2) #m
+
+print ("Thickness: ", thickness, "m")
+
+#Determine if the tank is thin walled or not
+
+thickness_ratio = thickness / tank_radius
+
+if thickness_ratio <= 0.1:
+    print("Tank is thin walled, thickness ratio = ", thickness_ratio)
+else:
+    print("Tank is thick walled, thickness ratio = ", thickness_ratio)
 
 #Dome contour calculations
 
