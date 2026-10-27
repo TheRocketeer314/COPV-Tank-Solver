@@ -14,7 +14,7 @@ total_bottle_length = bottle_length + sum(bottle_bosses.values())
 
 combined_tanks_length = total_nitrous_tank_length + total_bottle_length
 
-print(f"The total lengths of the tanks (without plumbing): {combined_tanks_length} m")
+print(f"The total length of the tanks (without plumbing): {combined_tanks_length} m")
 
 total_system_length = combined_tanks_length + plumbing_length
 
