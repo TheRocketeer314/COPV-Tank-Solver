@@ -1,8 +1,8 @@
 #Netting Analysis for COPV Rocket tank
 import math
-from Inputs import tank_radius, meop, safety_factor, polar_boss_opening, fibre_allowable_stress, translation_efficiency, fibre_volume_fraction, al_yield_strength, cylinder_length
+from Inputs import tank_radius, meop, safety_factor, polar_boss_opening, fibre_allowable_stress, translation_efficiency, fibre_volume_fraction, al_yield_strength
 
-thickness = (meop * safety_factor *tank_radius) / (al_yield_strength * 2) #m
+thickness = (meop * safety_factor * tank_radius) / (al_yield_strength * 2) #m
 
 tank_outer_radius = tank_radius + thickness #m
 

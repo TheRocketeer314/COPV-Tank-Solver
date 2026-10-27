@@ -15,6 +15,7 @@ while True:
 
 modules = [
     "COPV Netting Analysis.py",
+    "Nitrous_Tank_Length.py",
     "Geodesic_Dome.py"
 ]
 

@@ -4,3 +4,4 @@ scipy
 dotenv
 ezdxf
 scipy
+CoolProp

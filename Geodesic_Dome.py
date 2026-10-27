@@ -1,11 +1,12 @@
 import math
 import ezdxf
 import numpy as np
-from Inputs import tank_radius, meop, safety_factor, polar_boss_opening, al_yield_strength, cylinder_length
+from Inputs import tank_radius, meop, safety_factor, polar_boss_opening, al_yield_strength
 import os
 from Plotting import plot_dome_profile, plot_tank_profile
 from dotenv import load_dotenv
 from DXF_Export import load, fit, add_spline
+from Nitrous_Tank_Length import tank_length
 
 load_dotenv()  # Load environment variables from .env file
 
@@ -143,9 +144,9 @@ x_in_A = -x_in[::-1]
 r_in_A =  r_in[::-1]
 
 # Far-end dome at x = L: just shift
-x_out_B  = x_out  + cylinder_length
+x_out_B  = x_out  + tank_length
 r_out_B  = r_out
-x_in_B = x_in + cylinder_length
+x_in_B = x_in + tank_length
 r_in_B = r_in
 
 # Full inner and outer lines. The straight cylinder is the segment between
@@ -156,7 +157,7 @@ r_out_full  = np.concatenate([r_out_A,  r_out_B])
 x_in_full = np.concatenate([x_in_A, x_in_B])
 r_in_full = np.concatenate([r_in_A, r_in_B])
 
-plot_tank_profile(x_in_full, r_in_full, x_out_full, r_out_full, cylinder_length, tank_radius, thickness)
+plot_tank_profile(x_in_full, r_in_full, x_out_full, r_out_full, tank_length, tank_radius, thickness)
 
 # EXPORT FOR CAD - one CSV per surface (x, r)
 
