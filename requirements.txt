@@ -1,7 +1,6 @@
 matplotlib
 numpy
 scipy
-dotenv
+python-dotenv
 ezdxf
-scipy
 CoolProp

@@ -14,9 +14,9 @@ while True:
     i += 1
 
 modules = [
-    "COPV Netting Analysis.py",
-    "Nitrous_Tank_Length.py",
-    "Geodesic_Dome.py"
+    "Nitrous_Tank.py",
+    "Nitrogen_Script.py",
+    "Total_System_Dimensions.py"
 ]
 
 with open(OUTPUT_FILE, "w", encoding="utf-8") as file:

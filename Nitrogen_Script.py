@@ -1,4 +1,12 @@
-from Inputs import ambient_temp, nitrous_mass, ullage_percentage, ullage_pressure, bottle_pressure, regulator_pressure, R_nitrogen, reg_min_margin, tank_radius
+from Inputs import (ambient_temp, nitrous_mass, nitrous_ullage_percentage, 
+                    ullage_pressure, bottle_pressure, regulator_pressure, 
+                    R_nitrogen, reg_min_margin, bottle_radius,
+                    bottle_boss_opening, bottle_safety_factor,
+                    al_yield_strength, fibre_volume_fraction,
+                    fibre_allowable_stress, translation_efficiency)
+from Geodesic_Dome import dome_contour
+import Working_Memory
+from COPV_Netting_Analysis import run_netting
 from CoolProp.CoolProp import PropsSI as PS
 from scipy.optimize import brentq
 import numpy as np
@@ -11,7 +19,7 @@ psat = PS('P', 'T', T0, 'Q', 0, 'N2O')  # Saturation pressure at ambient tempera
 rho_liquid = PS('D', 'T', T0, 'Q', 0, 'N2O')  # Density of liquid nitrous oxide at ambient temperature
 
 V_liquid = nitrous_mass / rho_liquid  # Volume of liquid nitrous oxide in m^3
-V_u0 = (ullage_percentage / 100) * V_liquid  # Initial ullage volume in m^3
+V_u0 = (nitrous_ullage_percentage / 100) * V_liquid  # Initial ullage volume in m^3
 V_u1 = V_u0 + V_liquid  #Final ullage volume in m^3
 
 P_end = regulator_pressure + reg_min_margin  # Final pressure in the nitrogen bottle after regulator in Pa
@@ -66,6 +74,32 @@ f_delivered = 1 - (rho_end/rho_0)
 m_nitrogen = m_total / f_delivered
 print(f"Total nitrogen stored:  {m_nitrogen} kg")
 V_nitrogen = m_nitrogen / rho_0
-print(f"Volume of nitrogen: {V_nitrogen} m3")
-tank_length = V_nitrogen / (3.14159 * tank_radius**2)  # m
-print(f"Length of nitrogen tank:    {tank_length} m")
+print(f"Volume of nitrogen: {V_nitrogen} m3\n")
+
+bottle_contour = dome_contour(bottle_radius, bottle_pressure, bottle_safety_factor, bottle_boss_opening, al_yield_strength)
+bottle_dome_volume = bottle_contour["dome_volume"]
+bottle_dome_depth = bottle_contour["dome_depth"]
+
+bottle_cyl_volume = V_nitrogen - (2 * bottle_dome_volume)
+bottle_cyl_length = bottle_cyl_volume / (3.14159 * bottle_radius**2)  # m
+bottle_length = bottle_cyl_length + (2 * bottle_dome_depth)
+Working_Memory.bottle_length = bottle_length
+
+#Find thickness and outer radius of the tank
+
+bottle_liner_thickness = bottle_contour["thickness"]
+Working_Memory.bottle_liner_thickness = bottle_liner_thickness
+bottle_overwrap_thickness = run_netting(bottle_radius, bottle_pressure, bottle_safety_factor, bottle_boss_opening, fibre_allowable_stress, translation_efficiency, fibre_volume_fraction, al_yield_strength, "Nitrous Oxide")
+bottle_total_thickness = bottle_overwrap_thickness + bottle_liner_thickness
+
+bottle_outer_radius = bottle_radius + bottle_total_thickness
+
+#Print results
+
+print(f"\n{'.' * 50}")
+print(f"Length of nitrogen bottle cylinder:    {bottle_cyl_length} m")
+print(f"Total length of nitrogen bottle (without boss): {bottle_length} m")
+print(f"Thickness of nitrous tank liner: {bottle_liner_thickness} m ({bottle_liner_thickness * 1000:.3f} mm)")
+print(f"Thickness of nitrous tank overwrap: {bottle_overwrap_thickness} m ({bottle_overwrap_thickness * 1000:.3f} mm)")
+print(f"Thickness of nitrous tank total: {bottle_total_thickness} m ({bottle_total_thickness * 1000:.3f} mm)")
+print(f"Outer radius of nitrous tank: {bottle_outer_radius} m ({bottle_outer_radius * 1000:.3f} mm)")

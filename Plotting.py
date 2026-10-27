@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def plot_dome_profile(x_in, r_in, x_out, r_out, x_stop, r_stop, x_cap, r_cap, x_cap_out, r_cap_out, r_dome, polar_boss_opening):
+def plot_dome_profile(x_in, r_in, x_out, r_out, x_stop, r_stop, x_cap, r_cap, x_cap_in, r_cap_in, r_dome, polar_boss_opening, **kwargs):
     # Plotting the dome only (with winding angle sanity check) and exporting the dome profile to CSV for CAD
 
     fig, (ax1, ax2) = plt.subplots(
@@ -13,9 +13,9 @@ def plot_dome_profile(x_in, r_in, x_out, r_out, x_stop, r_stop, x_cap, r_cap, x_
     ax1.plot(x_out, r_out, '-', color='tab:red',  linewidth=1.5, label='Outer surface')
     ax1.scatter([x_stop], [r_stop], color='black', zorder=5, label='Dome/cap handoff (outer)')
     ax1.scatter([x_cap[-1]],     [r_cap[-1]],     color='green', zorder=5, label='Boss opening (outer)')
-    ax1.scatter([x_cap_out[-1]], [r_cap_out[-1]], color='green', marker='s', zorder=5, label='Boss opening (inner)')
-    ax1.set_xlabel('Axial position x (mm)')
-    ax1.set_ylabel('Radius r (mm)')
+    ax1.scatter([x_cap_in[-1]], [r_cap_in[-1]], color='green', marker='s', zorder=5, label='Boss opening (inner)')
+    ax1.set_xlabel('Axial position x (m)')
+    ax1.set_ylabel('Radius r (m)')
     ax1.set_title('Dome profile (geodesic dome + spherical cap)')
     ax1.set_aspect('equal')
     ax1.grid(True)
@@ -23,7 +23,7 @@ def plot_dome_profile(x_in, r_in, x_out, r_out, x_stop, r_stop, x_cap, r_cap, x_
 
     alpha_dome_deg = np.degrees(np.arcsin(np.clip(polar_boss_opening / r_dome, -1, 1)))
     ax2.plot(r_dome, alpha_dome_deg, '-', color='tab:orange')
-    ax2.set_xlabel('Local radius r (mm)')
+    ax2.set_xlabel('Local radius r (m)')
     ax2.set_ylabel('Winding angle (deg)')
     ax2.set_title('Winding angle along dome (sanity check)')
     ax2.grid(True)
