@@ -20,14 +20,14 @@ meop = 7e6      #Maximum expected operating pressure in Pa
 safety_factor = 3       #Safety factor for tank design
 
 # Nitrous Tank Properties
-nitrous_radius = 0.075      #Radius in meters
+nitrous_radius = 0.055      #Radius in meters
 nitrous_boss_opening = 0.02       #Radius of polar boss opening in meters
 nitrous_meop = 7e6      #Maximum expected operating pressure in Pa
 nitrous_safety_factor = 3       #Safety factor for tank design
 nitrous_ullage_percentage = 10       #Percentage of ullage in the tank
 
 #Nitrogen Tank Properties
-bottle_radius = 0.07       #Radius in meters
+bottle_radius = 0.052       #Radius in meters
 bottle_boss_opening = 0.02  #Radius of polar boss opening in meters
 bottle_safety_factor = 3    #Safety factor for nitrogen bottle
 bottle_pressure = 2e7       #Pressure of the nitrogen bottle in Pa
