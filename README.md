@@ -40,6 +40,7 @@ When run from main.py, the script takes in input parameters for BOTH nitrous and
 The nitrogen and nitrous tank modules can be run individually to provide the values for the respective tank.
 
 **IMPORTANT**
-To receive the DXF file for dome geometry for import into CAD, the Geodesic_Dome.py needs to be run individually with inputs in 'General Tank Properties' in Inputs.py.
+
+To export the DXF file for dome geometry for import into CAD, the Geodesic_Dome.py needs to be run individually with inputs in 'General Tank Properties' in Inputs.py.
 
 To run the geodesic dome solver, first add an environment variable specifying the directory to save the exported CSV and plot in.
