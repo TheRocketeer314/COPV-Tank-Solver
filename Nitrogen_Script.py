@@ -96,10 +96,10 @@ bottle_outer_radius = bottle_radius + bottle_total_thickness
 
 #Print results
 
-print(f"\n{'.' * 50}")
+print(f"{'.' * 50}")
 print(f"Length of nitrogen bottle cylinder:    {bottle_cyl_length} m")
 print(f"Total length of nitrogen bottle (without boss): {bottle_length} m")
-print(f"Thickness of nitrous tank liner: {bottle_liner_thickness} m ({bottle_liner_thickness * 1000:.3f} mm)")
-print(f"Thickness of nitrous tank overwrap: {bottle_overwrap_thickness} m ({bottle_overwrap_thickness * 1000:.3f} mm)")
-print(f"Thickness of nitrous tank total: {bottle_total_thickness} m ({bottle_total_thickness * 1000:.3f} mm)")
-print(f"Outer radius of nitrous tank: {bottle_outer_radius} m ({bottle_outer_radius * 1000:.3f} mm)")
+print(f"Thickness of nitrogen tank liner: {bottle_liner_thickness} m ({bottle_liner_thickness * 1000:.3f} mm)")
+print(f"Thickness of nitrogen tank overwrap: {bottle_overwrap_thickness} m ({bottle_overwrap_thickness * 1000:.3f} mm)")
+print(f"Thickness of nitrogen tank total: {bottle_total_thickness} m ({bottle_total_thickness * 1000:.3f} mm)")
+print(f"Outer radius of nitrogen tank: {bottle_outer_radius} m ({bottle_outer_radius * 1000:.3f} mm)")

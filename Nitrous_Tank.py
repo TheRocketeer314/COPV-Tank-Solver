@@ -42,7 +42,7 @@ nitrous_outer_radius = nitrous_radius + nitrous_total_thickness
 
 #Print results
 
-print(f"\n{'.' * 50}")
+print(f"{'.' * 50}")
 if phase == 'liquid':
     print(f"Nitrous Oxide is in {phase} phase at {ambient_temp}°C and {bar:.2f} bar")
     print(f"Nitrous Cyl length: {nitrous_cyl_length:.4f} m, Density: {rho:.2f} kg/m^3, Volume: {volume:.4f} m^3, Total length (w.o boss): {nitrous_tank_length} m")
