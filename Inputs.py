@@ -22,7 +22,7 @@ meop = 7e6      #Maximum expected operating pressure in Pa
 safety_factor = 3       #Safety factor for tank design
 
 # Nitrous Tank Properties
-nitrous_diameter = 0.118       #Diameter in meters
+nitrous_diameter = 0.12       #Diameter in meters
 nitrous_radius = nitrous_diameter / 2      #Radius in meters
 nitrous_boss_opening = 0.02       #Radius of polar boss opening in meters
 nitrous_meop = 7e6      #Maximum expected operating pressure in Pa
@@ -30,12 +30,12 @@ nitrous_safety_factor = 3       #Safety factor for tank design
 nitrous_ullage_fraction = 0.10       #Fraction of ullage in the tank
 
 #Nitrogen Tank Properties
-bottle_diameter = 0.117       #Diameter in meters
+bottle_diameter = 0.12       #Diameter in meters
 bottle_radius = bottle_diameter / 2       #Radius in meters
 bottle_boss_opening = 0.02  #Radius of polar boss opening in meters
 bottle_safety_factor = 3    #Safety factor for nitrogen bottle
 bottle_pressure = 2e7       #Pressure of the nitrogen bottle in Pa
-ullage_pressure = 7e6       #Pressure of the ullage in the tank in Pa
+ullage_pressure = nitrous_meop       #Pressure of the ullage in the tank in Pa
 regulator_pressure = ullage_pressure      #Regulator set point pressure in Pa
 reg_min_margin = 2e6        #Minimum difference between end bottle pressure and regulator pressure in Pa; check from regulator datasheet
 

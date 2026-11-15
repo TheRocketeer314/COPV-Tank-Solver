@@ -1,8 +1,8 @@
 import math
-from scipy.integrate import quad
 import ezdxf
 import numpy as np
 from Inputs import tank_radius, meop, safety_factor, polar_boss_opening, al_yield_strength, tank_length
+from netting_calc import netting_calc
 import os
 from Plotting import plot_dome_profile, plot_tank_profile
 from dotenv import load_dotenv
@@ -13,7 +13,8 @@ load_dotenv()  # Load environment variables from .env file
 DIRECTORY = os.getenv("DIRECTORY")  # Get the directory from environment variable
 os.chdir(DIRECTORY)  # Change working directory to the specified path
 
-thickness = (meop * safety_factor * tank_radius) / (al_yield_strength * 2) #m
+netting_calculation = netting_calc(tank_radius, meop, safety_factor, polar_boss_opening, al_yield_strength)
+thickness = netting_calculation["thickness"]
 
 print ("Thickness: ", thickness, "m")
 
@@ -42,8 +43,8 @@ def step_derivative(psi, r):
     dx_dpsi = rm * math.cos(psi)
     return dr_dpsi, dx_dpsi
 
-r = tank_radius + thickness
-r_in = tank_radius
+r = netting_calculation["r_lo"]
+r_in = netting_calculation["r_in"]
 x = 0.0
 x_in = 0.0
 psi = 0.0

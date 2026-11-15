@@ -24,7 +24,7 @@ total_wind_thickness = (helical_wind_thickness + hoop_wind_thickness) / fibre_vo
 helical_layers_fraction = helical_wind_thickness / (fibre_volume_fraction * total_wind_thickness) #number of helical layers
 hoop_layers_fraction = hoop_wind_thickness / (fibre_volume_fraction * total_wind_thickness) #number of hoop layers
 
-print_table(
+print_table("Netting Analysis",
     [
         ("Tank Radius", f"{tank_radius:.4e} m", f"{tank_radius * 1000:.3f} mm"),
         ("MEOP", f"{meop:.4e} Pa", f"{meop / 1e6:.2f} MPa"),

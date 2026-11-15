@@ -20,7 +20,7 @@ def main():
                   nitrous_liner_thickness = nitrous["liner_thickness"],
                   bottle_liner_thickness  = bottle["liner_thickness"])
 
-    out = next_results_file()
+    out = next_results_file(RESULTS_DIR)
     with open(out, "w", encoding="utf-8") as f, redirect_stdout(f):
         report(nitrous, bottle, system)
     print(f"Results saved to: {out}")

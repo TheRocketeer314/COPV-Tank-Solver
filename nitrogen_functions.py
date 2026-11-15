@@ -31,8 +31,8 @@ def burn_gas_mass(T0, v_u0, v_liq, p_ullage, h_in):
 def nitrogen_required(ambient_temp, m_n2o, ullage_fraction, p_ullage, p_bottle,
                       p_reg, reg_margin, r_n2, margin=0.10):
     T0 = temp_C_to_K(ambient_temp)
-    p_sat = psat_T(T0, "N2O")
-    v_liq = m_n2o / density_TQ(T0, "N2O", 0)
+    p_sat = psat_T(T0, "NITROUSOXIDE")
+    v_liq = m_n2o / density_TP(T0, p_ullage,"NITROUSOXIDE")
     v_u0  = (ullage_fraction * v_liq) / (1 - ullage_fraction)
     p_end = p_reg + reg_margin
 

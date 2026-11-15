@@ -12,13 +12,17 @@ def size_tank(volume, radius, meop, safety_factor, boss_opening, al_yield_streng
 
     liner_outer_radius = netting_calculation["r_lo"]
 
-    tank_properties = dome_properties(liner_outer_radius, liner_thickness, boss_opening, al_yield_strength)
+    tank_properties = dome_properties(liner_outer_radius, liner_thickness, boss_opening)
 
     dome_volume = tank_properties["dome_volume"]
     dome_depth = tank_properties["dome_depth"]
 
     cylinder_volume = cyl_volume(volume, dome_volume)
-    cylinder_length = cyl_length(cylinder_volume, radius)
+
+    if cylinder_volume <= 0:
+        raise ValueError("Tank volume is smaller than the two domes combined")
+    
+    cylinder_length = cyl_length(cylinder_volume, netting_calculation["r_in"])
 
     total_tank_length = tank_length(cylinder_length, dome_depth)
 
