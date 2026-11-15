@@ -19,4 +19,8 @@ def bottle_sizing(ambient_temp, nitrous_mass, nitrous_ullage_fraction, ullage_pr
                                     al_yield_strength, fibre_allowable_stress, translation_efficiency, 
                                     fibre_volume_fraction)
 
-    return nitrogen_size_results
+    return {
+        **nitrogen_size_results,           # tank_length, liner_thickness, ...
+        **nitrogen_required_results,       # m_pad, m_burn, m_delivered, T_ullage_final, p_end
+        **nitrogen_bottle_volume_results,  # f_delivered, m_stored, volume
+    }

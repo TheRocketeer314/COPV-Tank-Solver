@@ -1,31 +1,29 @@
-import runpy
 from pathlib import Path
 from contextlib import redirect_stdout
+from call_inputs import call
+from Nitrogen_Script import bottle_sizing
+from Nitrous_Tank import nitrous_tank_sizing
+from Total_System_Dimensions import total_system_dimensions
+from reporting import report, next_results_file
 
 BASE_DIR = Path(__file__).resolve().parent
 RESULTS_DIR = BASE_DIR / "results"
 RESULTS_DIR.mkdir(exist_ok=True)
 
-i = 1
-while True:
-    OUTPUT_FILE = RESULTS_DIR / f"results_{i:03d}.txt"
-    if not OUTPUT_FILE.exists():
-        break
-    i += 1
+def main():
+    nitrous = call(nitrous_tank_sizing)
+    bottle  = call(bottle_sizing)
 
-modules = [
-    "Nitrous_Tank.py",
-    "Nitrogen_Script.py",
-    "Total_System_Dimensions.py"
-]
+    system = call(total_system_dimensions,
+                  nitrous_tank_length     = nitrous["tank_length"],
+                  bottle_length           = bottle["tank_length"],
+                  nitrous_liner_thickness = nitrous["liner_thickness"],
+                  bottle_liner_thickness  = bottle["liner_thickness"])
 
-with open(OUTPUT_FILE, "w", encoding="utf-8") as file:
-    with redirect_stdout(file):
-        for module in modules:
-            print(f"\n{'=' * 50}")
-            print(f"Running {module}")
-            print(f"{'=' * 50}\n")
+    out = next_results_file()
+    with open(out, "w", encoding="utf-8") as f, redirect_stdout(f):
+        report(nitrous, bottle, system)
+    print(f"Results saved to: {out}")
 
-            runpy.run_path(str(BASE_DIR / module))
-
-print(f"Results saved to: {OUTPUT_FILE}")
+if __name__ == "__main__":
+    main()
