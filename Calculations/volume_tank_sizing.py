@@ -8,6 +8,8 @@ def size_tank(volume, radius, meop, safety_factor, boss_opening, al_yield_streng
     netting_calculation = netting_calc(radius, meop, safety_factor, fibre_allowable_stress, 
                                        translation_efficiency, fibre_volume_fraction, al_yield_strength)
 
+    inner_radius = netting_calculation["r_in"]
+
     liner_thickness = netting_calculation["t_liner"]
 
     liner_outer_radius = netting_calculation["r_lo"]
@@ -37,5 +39,7 @@ def size_tank(volume, radius, meop, safety_factor, boss_opening, al_yield_streng
         cylinder_length = cylinder_length,
         overwrap_thickness = overwrap_thickness,
         liner_thickness = liner_thickness,
+        tank_outer_radius = radius,
+        tank_inner_radius = inner_radius,
         liner_outer_radius = liner_outer_radius
     )

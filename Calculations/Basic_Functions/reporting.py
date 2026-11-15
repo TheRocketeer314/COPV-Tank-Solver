@@ -45,11 +45,16 @@ def report(inputs, nitrous, bottle, system):
     print_table("Nitrous tank", [
         ("Total length",       f"{nitrous['tank_length']:.4f} m",       f"{nitrous['tank_length']*1000:.1f} mm"),
         ("Cylinder length",    f"{nitrous['cylinder_length']:.4f} m",   f"{nitrous['cylinder_length']*1000:.1f} mm"),
+        ("Tank outer radius",  f"{nitrous['tank_outer_radius']:.4f} m", f"{nitrous['tank_outer_radius']*1000:.1f} mm"),
+        ("Tank inner radius",  f"{nitrous['tank_inner_radius']:.4f} m", f"{nitrous['tank_inner_radius']*1000:.1f} mm"),
         ("Liner thickness",    f"{nitrous['liner_thickness']:.4e} m",   f"{nitrous['liner_thickness']*1000:.3f} mm"),
         ("Overwrap thickness", f"{nitrous['overwrap_thickness']:.4e} m", f"{nitrous['overwrap_thickness']*1000:.3f} mm"),
     ])
     print_table("Nitrogen bottle", [
         ("Total length",       f"{bottle['tank_length']:.4f} m",        f"{bottle['tank_length']*1000:.1f} mm"),
+        ("Cylinder length",    f"{bottle['cylinder_length']:.4f} m",    f"{bottle['cylinder_length']*1000:.1f} mm"),
+        ("Tank outer radius",  f"{bottle['tank_outer_radius']:.4f} m",  f"{bottle['tank_outer_radius']*1000:.1f} mm"),
+        ("Tank inner radius",  f"{bottle['tank_inner_radius']:.4f} m", f"{bottle['tank_inner_radius']*1000:.1f} mm"),
         ("Liner thickness",    f"{bottle['liner_thickness']:.4e} m",    f"{bottle['liner_thickness']*1000:.3f} mm"),
         ("Overwrap thickness", f"{bottle['overwrap_thickness']:.4e} m", f"{bottle['overwrap_thickness']*1000:.3f} mm"),
     ])
