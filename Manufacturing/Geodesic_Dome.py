@@ -1,7 +1,7 @@
 import math
 import ezdxf
 import numpy as np
-from Inputs import (tank_radius, meop, safety_factor, polar_boss_opening, al_yield_strength, tank_length, 
+from inputs import (tank_radius, meop, safety_factor, polar_boss_opening, al_yield_strength, tank_length, 
                     fibre_allowable_stress, translation_efficiency, fibre_volume_fraction)
 from Calculations.netting_calc import netting_calc
 import os
