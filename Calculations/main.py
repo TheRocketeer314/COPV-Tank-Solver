@@ -1,10 +1,10 @@
 from pathlib import Path
 from contextlib import redirect_stdout
-from call_inputs import call
-from Nitrogen_Script import bottle_sizing
-from Nitrous_Tank import nitrous_tank_sizing
-from Total_System_Dimensions import total_system_dimensions
-from reporting import report, next_results_file
+from Calculations.Basic_Functions.call_inputs import call
+from Calculations.pressurant_script import bottle_sizing
+from Calculations.oxidiser_script import nitrous_tank_sizing
+from total_system_dimensions import total_system_dimensions
+from Calculations.Basic_Functions.reporting import report, next_results_file
 
 BASE_DIR = Path(__file__).resolve().parent
 RESULTS_DIR = BASE_DIR / "results"

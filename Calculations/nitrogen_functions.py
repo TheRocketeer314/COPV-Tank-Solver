@@ -1,9 +1,9 @@
-from coolprop_func import (density_SP, density_TQ, mass_enthalpy_SP, 
+from Calculations.coolprop_functions import (density_SP, density_TQ, mass_enthalpy_SP, 
                            mass_entropy_TP, mass_internal_energy_TP, 
                            density_TP, psat_T)
 import numpy as np
 from scipy.optimize import brentq
-from converters import temp_C_to_K
+from Calculations.converters import temp_C_to_K
 
 def mean_inlet_enthalpy(T0, P0, P_end, n=200):
     s0 = mass_entropy_TP(T0, P0, 'N2')

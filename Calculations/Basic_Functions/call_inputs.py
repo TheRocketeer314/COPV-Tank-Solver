@@ -1,8 +1,8 @@
 import inspect
-import Inputs
+import inputs
 
-# every plain variable in Inputs.py, as a dict
-INPUTS = {k: v for k, v in vars(Inputs).items() if not k.startswith("_")}
+# every plain variable in inputs.py, as a dict
+INPUTS = {k: v for k, v in vars(inputs).items() if not k.startswith("_")}
 
 def call(fn, **extra):
     """Call fn, filling each argument from Inputs (or from `extra`)."""

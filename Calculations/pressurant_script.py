@@ -1,5 +1,5 @@
-from volume_tank_sizing import size_tank
-from nitrogen_functions import nitrogen_required, nitrogen_bottle_volume
+from Calculations.volume_tank_sizing import size_tank
+from Calculations.nitrogen_functions import nitrogen_required, nitrogen_bottle_volume
 
 def bottle_sizing(ambient_temp, nitrous_mass, nitrous_ullage_fraction, ullage_pressure, 
                   bottle_pressure, regulator_pressure, reg_min_margin, R_nitrogen, bottle_radius, 

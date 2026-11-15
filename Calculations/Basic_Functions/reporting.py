@@ -1,5 +1,5 @@
 from pathlib import Path
-from results_table import print_table
+from Calculations.Basic_Functions.results_table import print_table
 
 def next_results_file(folder="results"):
     Path(folder).mkdir(exist_ok=True)

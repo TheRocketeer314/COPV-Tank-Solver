@@ -2,7 +2,7 @@
 from Inputs import (tank_radius, meop, safety_factor, polar_boss_opening, fibre_allowable_stress,
                     translation_efficiency, fibre_volume_fraction, al_yield_strength)
 import math
-from results_table import print_table
+from Calculations.Basic_Functions.results_table import print_table
 
 thickness = (meop * safety_factor * tank_radius) / (al_yield_strength * 2) #m
 

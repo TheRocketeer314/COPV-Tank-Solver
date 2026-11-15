@@ -1,19 +1,20 @@
 import math
 import ezdxf
 import numpy as np
-from Inputs import tank_radius, meop, safety_factor, polar_boss_opening, al_yield_strength, tank_length
-from netting_calc import netting_calc
+from Inputs import (tank_radius, meop, safety_factor, polar_boss_opening, al_yield_strength, tank_length, 
+                    fibre_allowable_stress, translation_efficiency, fibre_volume_fraction)
+from Calculations.netting_calc import netting_calc
 import os
-from Plotting import plot_dome_profile, plot_tank_profile
+from Manufacturing.Plotting import plot_dome_profile, plot_tank_profile
 from dotenv import load_dotenv
-from DXF_Export import load, fit, add_spline
+from Manufacturing.DXF_Export import load, fit, add_spline
 
 load_dotenv()  # Load environment variables from .env file
 
 DIRECTORY = os.getenv("DIRECTORY")  # Get the directory from environment variable
 os.chdir(DIRECTORY)  # Change working directory to the specified path
 
-netting_calculation = netting_calc(tank_radius, meop, safety_factor, polar_boss_opening, al_yield_strength)
+netting_calculation = netting_calc(tank_radius, meop, safety_factor, fibre_allowable_stress, translation_efficiency, fibre_volume_fraction, al_yield_strength)
 thickness = netting_calculation["thickness"]
 
 print ("Thickness: ", thickness, "m")

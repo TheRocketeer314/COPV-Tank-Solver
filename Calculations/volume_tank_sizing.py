@@ -1,6 +1,6 @@
-from dome_dimensions import dome_properties
-from netting_calc import netting_calc
-from tank_calculations import cyl_volume, cyl_length, tank_length
+from Calculations.dome_dimensions import dome_properties
+from Calculations.netting_calc import netting_calc
+from Calculations.basic_dimension_calc import cyl_volume, cyl_length, tank_length
 
 def size_tank(volume, radius, meop, safety_factor, boss_opening, al_yield_strength, 
               fibre_allowable_stress, translation_efficiency, fibre_volume_fraction):

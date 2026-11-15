@@ -7,3 +7,4 @@ __pycache__
 *.prt
 *.txt
 .vscode
+test.py
