@@ -8,3 +8,6 @@ __pycache__
 *.txt
 .vscode
 test.py
+
+!Outputs/
+!Outputs/**/*.txt

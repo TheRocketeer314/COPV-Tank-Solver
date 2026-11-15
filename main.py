@@ -1,9 +1,9 @@
 from pathlib import Path
 from contextlib import redirect_stdout
-from Calculations.Basic_Functions.call_inputs import call
+from Calculations.Basic_Functions.call_inputs import call, INPUTS
 from Calculations.pressurant_script import bottle_sizing
 from Calculations.oxidiser_script import nitrous_tank_sizing
-from total_system_dimensions import total_system_dimensions
+from Calculations.total_system_dimensions import total_system_dimensions
 from Calculations.Basic_Functions.reporting import report, next_results_file
 
 BASE_DIR = Path(__file__).resolve().parent
@@ -22,7 +22,7 @@ def main():
 
     out = next_results_file(RESULTS_DIR)
     with open(out, "w", encoding="utf-8") as f, redirect_stdout(f):
-        report(nitrous, bottle, system)
+        report(INPUTS, nitrous, bottle, system)
     print(f"Results saved to: {out}")
 
 if __name__ == "__main__":

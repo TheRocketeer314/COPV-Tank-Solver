@@ -1,5 +1,5 @@
 import inspect
-import inputs
+import Inputs.inputs as inputs
 
 # every plain variable in inputs.py, as a dict
 INPUTS = {k: v for k, v in vars(inputs).items() if not k.startswith("_")}
