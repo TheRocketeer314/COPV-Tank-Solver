@@ -12,7 +12,7 @@ Inputs: nitrous tank
 -------------------------------------------------------------------------------------
 Parameter                                     Value           Converted Value
 -------------------------------------------------------------------------------------
-Outer radius                               0.0600 m                   60.0 mm
+Outer radius                               0.0625 m                   62.5 mm
 Nitrous mass                               2.582 kg                          
 MEOP                                  7.0000e+06 Pa                  70.0 bar
 Safety factor                                     3                          
@@ -24,7 +24,7 @@ Inputs: nitrogen bottle
 -------------------------------------------------------------------------------------
 Parameter                                     Value           Converted Value
 -------------------------------------------------------------------------------------
-Outer radius                               0.0600 m                   60.0 mm
+Outer radius                               0.0625 m                   62.5 mm
 Bottle pressure                       2.0000e+07 Pa                 200.0 bar
 Regulator setpoint                    7.0000e+06 Pa                  70.0 bar
 Min reg margin                        2.0000e+06 Pa                  20.0 bar
@@ -46,19 +46,19 @@ Nitrous tank
 -------------------------------------------------------------------------------------
 Parameter                                     Value           Converted Value
 -------------------------------------------------------------------------------------
-Total length                               0.4101 m                  410.1 mm
-Cylinder length                            0.3391 m                  339.1 mm
-Liner thickness                        2.2134e-03 m                  2.213 mm
-Overwrap thickness                     8.6957e-04 m                  0.870 mm
+Total length                               0.3803 m                  380.3 mm
+Cylinder length                            0.3066 m                  306.6 mm
+Liner thickness                        2.3057e-03 m                  2.306 mm
+Overwrap thickness                     9.0580e-04 m                  0.906 mm
 -------------------------------------------------------------------------------------
 
 Nitrogen bottle
 -------------------------------------------------------------------------------------
 Parameter                                     Value           Converted Value
 -------------------------------------------------------------------------------------
-Total length                               0.5924 m                  592.4 mm
-Liner thickness                        5.7581e-03 m                  5.758 mm
-Overwrap thickness                     2.4194e-03 m                  2.419 mm
+Total length                               0.5480 m                  548.0 mm
+Liner thickness                        5.9980e-03 m                  5.998 mm
+Overwrap thickness                     2.5202e-03 m                  2.520 mm
 -------------------------------------------------------------------------------------
 
 Nitrogen requirement
@@ -77,8 +77,8 @@ Total system length
 -------------------------------------------------------------------------------------
 Parameter                                     Value           Converted Value
 -------------------------------------------------------------------------------------
-Nitrous tank + bosses                      0.4601 m                          
-N2 bottle + bosses                         0.6289 m                          
-Tanks combined                             1.0890 m                          
-With plumbing                              1.0890 m                          
+Nitrous tank + bosses                      0.4301 m                          
+N2 bottle + bosses                         0.5840 m                          
+Tanks combined                             1.0140 m                          
+With plumbing                              1.0140 m                          
 -------------------------------------------------------------------------------------
