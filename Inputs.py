@@ -27,7 +27,7 @@ nitrous_radius = nitrous_diameter / 2      #Radius in meters
 nitrous_boss_opening = 0.02       #Radius of polar boss opening in meters
 nitrous_meop = 7e6      #Maximum expected operating pressure in Pa
 nitrous_safety_factor = 3       #Safety factor for tank design
-nitrous_ullage_percentage = 10       #Percentage of ullage in the tank
+nitrous_ullage_fraction = 0.10       #Fraction of ullage in the tank
 
 #Nitrogen Tank Properties
 bottle_diameter = 0.117       #Diameter in meters

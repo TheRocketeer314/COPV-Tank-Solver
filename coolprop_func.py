@@ -24,9 +24,10 @@ def density_SP(
 
 def psat_T(
         T: float,   # Temperature in Kelvin
-        fluid: str  # Fluid name (e.g., 'N2O', 'N2', etc.)
+        fluid: str,  # Fluid name (e.g., 'N2O', 'N2', etc.)
+        Q: float = 0   # Quality (0 for saturated liquid, 1 for saturated vapor)
         ) -> float:
-    return PS('P', 'T', T, 'Q', 0, fluid)
+    return PS('P', 'T', T, 'Q', Q, fluid)
 
 def mass_entropy_TP(
         T: float,   # Temperature in Kelvin

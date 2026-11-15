@@ -1,7 +1,7 @@
 import math
 from scipy.integrate import quad
 
-def dome_properties(tank_radius, liner_outer_radius, liner_thickness, 
+def dome_properties(liner_outer_radius, liner_thickness, 
                     polar_boss_opening, stop_factor=1.23):
     R  = liner_outer_radius              # outer radius at the junction
     r0 = polar_boss_opening
