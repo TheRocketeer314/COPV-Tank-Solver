@@ -2,10 +2,11 @@ from Inputs import (nitrous_radius, nitrous_mass, nitrous_meop,
                     nitrous_ullage_percentage, ambient_temp,nitrous_safety_factor, 
                     nitrous_boss_opening, al_yield_strength,fibre_allowable_stress,
                     translation_efficiency, fibre_volume_fraction)
+from coolprop_func import density_TP, phase_TP
 from Geodesic_Dome import dome_contour
 import Working_Memory
 from COPV_Netting_Analysis import run_netting
-from CoolProp.CoolProp import PropsSI, PhaseSI
+from tank_calculations import cyl_volume, cyl_length, tank_length
 
 ambient_temp_K = ambient_temp + 273.15 
 bar = 0.00001 * nitrous_meop  # convert Pa to bar
@@ -14,8 +15,8 @@ ullage = nitrous_ullage_percentage / 100.0  # convert percentage to fraction
 
 # Calculate the tank length
 
-phase = PhaseSI('P', nitrous_meop, 'T', ambient_temp_K, "NITROUSOXIDE")
-rho = PropsSI('D', 'P', nitrous_meop, 'T', ambient_temp_K, "NITROUSOXIDE")  # kg/m^3
+phase = phase_TP(ambient_temp_K, nitrous_meop, "NITROUSOXIDE")
+rho = density_TP(ambient_temp_K, nitrous_meop, "NITROUSOXIDE")  # kg/m^3
 volume = nitrous_mass / rho  # m^3
 volume = volume + (ullage * volume) #Adding ullage volume
 
@@ -24,10 +25,10 @@ nitrous_contour = dome_contour(nitrous_radius, nitrous_meop, nitrous_safety_fact
 nitrous_dome_volume = nitrous_contour["dome_volume"]
 nitrous_dome_depth = nitrous_contour["dome_depth"]
 
-nitrous_cyl_volume = volume - (2 * nitrous_dome_volume)
-nitrous_cyl_length = nitrous_cyl_volume / (3.14159 * nitrous_radius**2)  # m
+nitrous_cyl_volume = cyl_volume(volume, nitrous_dome_volume)
+nitrous_cyl_length = cyl_length(nitrous_cyl_volume, nitrous_radius)
 
-nitrous_tank_length = nitrous_cyl_length + (2 * nitrous_dome_depth)
+nitrous_tank_length = tank_length(nitrous_cyl_length, nitrous_dome_depth)
 Working_Memory.nitrous_tank_length = nitrous_tank_length
 
 nitrous_liner_thickness = nitrous_contour["thickness"]

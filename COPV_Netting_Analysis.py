@@ -1,5 +1,6 @@
 #Netting Analysis for COPV Rocket tank
 import math
+from results_table import print_table
 
 def run_netting(tank_radius, meop, safety_factor, polar_boss_opening, fibre_allowable_stress, translation_efficiency, fibre_volume_fraction, al_yield_strength, fluid):
     thickness = (meop * safety_factor * tank_radius) / (al_yield_strength * 2) #m
@@ -22,27 +23,30 @@ def run_netting(tank_radius, meop, safety_factor, polar_boss_opening, fibre_allo
     helical_layers_fraction = helical_wind_thickness / (fibre_volume_fraction * total_wind_thickness) #number of helical layers
     hoop_layers_fraction = hoop_wind_thickness / (fibre_volume_fraction * total_wind_thickness) #number of hoop layers
 
-    print(f"The following values are for the {fluid} tank:")
-    print(f"{fluid} tank_radius: {tank_radius:.4e} m ({tank_radius * 1000:.3f} mm)")
-    print(f"meop: {meop:.4e} Pa ({meop / 1e6:.2f} MPa)")
-    print(f"safety_factor: {safety_factor}")
-    print(f"polar_boss_opening: {polar_boss_opening:.4e} m ({polar_boss_opening * 1000:.3f} mm)")
-    print(f"fibre_allowable_stress: {fibre_allowable_stress:.4e} Pa ({fibre_allowable_stress / 1e9:.2f} GPa)")
-    print(f"translation_efficiency: {translation_efficiency}")
-    print(f"fibre_volume_fraction: {fibre_volume_fraction}")
+    print_table(
+        f"{fluid} Tank Parameters",
+        [
+            ("Tank Radius", f"{tank_radius:.4e} m", f"{tank_radius * 1000:.3f} mm"),
+            ("MEOP", f"{meop:.4e} Pa", f"{meop / 1e6:.2f} MPa"),
+            ("Safety Factor", f"{safety_factor}", ""),
+            ("Polar Boss Opening", f"{polar_boss_opening:.4e} m", f"{polar_boss_opening * 1000:.3f} mm"),
+            ("Fibre Allowable Stress", f"{fibre_allowable_stress:.4e} Pa", f"{fibre_allowable_stress / 1e9:.2f} GPa"),
+            ("Translation Efficiency", f"{translation_efficiency:.4f}", ""),
+            ("Fibre Volume Fraction", f"{fibre_volume_fraction:.4f}", f"{fibre_volume_fraction * 100:.2f}%"),
 
-    print(f"max_design_pressure: {max_design_pressure:.4e} Pa ({max_design_pressure / 1e6:.2f} MPa)")
+            ("Max Design Pressure", f"{max_design_pressure:.4e} Pa", f"{max_design_pressure / 1e6:.2f} MPa"),
 
-    print(f"hoop_load: {hoop_load:.4e} N/m ({hoop_load / 1000:.2f} kN/m)")
-    print(f"longitudinal_load: {longitudinal_load:.4e} N/m ({longitudinal_load / 1000:.2f} kN/m)")
+            ("Hoop Load", f"{hoop_load:.4e} N/m", f"{hoop_load / 1000:.2f} kN/m"),
+            ("Longitudinal Load", f"{longitudinal_load:.4e} N/m", f"{longitudinal_load / 1000:.2f} kN/m"),
+            ("Wind Angle", f"{wind_angle:.4e} rad", f"{math.degrees(wind_angle):.2f}°"),
 
-    print(f"wind_angle: {wind_angle:.4e} rad ({math.degrees(wind_angle):.2f}°)")
+            ("Helical Wind Thickness", f"{helical_wind_thickness:.4e} m", f"{helical_wind_thickness * 1000:.4f} mm"),
+            ("Hoop Wind Thickness", f"{hoop_wind_thickness:.4e} m", f"{hoop_wind_thickness * 1000:.4f} mm"),
+            ("Total Wind Thickness", f"{total_wind_thickness:.4e} m", f"{total_wind_thickness * 1000:.4f} mm"),
 
-    print(f"helical_wind_thickness: {helical_wind_thickness:.4e} m ({helical_wind_thickness * 1000:.4f} mm)")
-    print(f"hoop_wind_thickness: {hoop_wind_thickness:.4e} m ({hoop_wind_thickness * 1000:.4f} mm)")
-    print(f"{fluid} total_wind_thickness: {total_wind_thickness:.4e} m ({total_wind_thickness * 1000:.4f} mm)")
-
-    print(f"helical_fraction: {helical_layers_fraction:.4e} ({helical_layers_fraction * 100:.2f}%)")
-    print(f"hoop_fraction: {hoop_layers_fraction:.4e} ({hoop_layers_fraction * 100:.2f}%)\n")
+            ("Helical Layers Fraction", f"{helical_layers_fraction:.4e}", f"{helical_layers_fraction * 100:.2f}%"),
+            ("Hoop Layers Fraction", f"{hoop_layers_fraction:.4e}", f"{hoop_layers_fraction * 100:.2f}%"),
+        ]
+    )
 
     return total_wind_thickness
