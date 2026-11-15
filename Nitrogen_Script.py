@@ -6,18 +6,15 @@ from Inputs import (ambient_temp, nitrous_mass, nitrous_ullage_percentage,
                     fibre_allowable_stress, translation_efficiency)
 from coolprop_func import (density_TP, density_SP, density_TQ, psat_T,
                            mass_entropy_TP, mass_enthalpy_SP, mass_internal_energy_TP)
-from Geodesic_Dome import dome_contour
-import Working_Memory
-from COPV_Netting_Analysis import run_netting
 from scipy.optimize import brentq
 import numpy as np
-from tank_calculations import cyl_volume, cyl_length, tank_length
+from volume_tank_sizing import size_tank
 
 T0 = ambient_temp + 273.15  # Convert ambient temperature to Kelvin
 
 # Find nitrous oxide properties
 
-psat = density_TQ(T0, 'N2O', 0)  # Saturation pressure at ambient temperature
+psat = psat_T(T0, 'N2O', 0)  # Saturation pressure at ambient temperature
 rho_liquid = density_TQ(T0, 'N2O', 0)  # Density of liquid nitrous oxide at ambient temperature
 
 V_liquid = nitrous_mass / rho_liquid  # Volume of liquid nitrous oxide in m^3
@@ -76,31 +73,14 @@ m_nitrogen = m_total / f_delivered
 print(f"Total nitrogen stored:  {m_nitrogen} kg")
 V_nitrogen = m_nitrogen / rho_0
 print(f"Volume of nitrogen: {V_nitrogen} m3\n")
-
-bottle_contour = dome_contour(bottle_radius, bottle_pressure, bottle_safety_factor, bottle_boss_opening, al_yield_strength)
-bottle_dome_volume = bottle_contour["dome_volume"]
-bottle_dome_depth = bottle_contour["dome_depth"]
-
-bottle_cyl_volume = cyl_volume(V_nitrogen, bottle_dome_volume)
-bottle_cyl_length = cyl_length(bottle_cyl_volume, bottle_radius)
-bottle_length = tank_length(bottle_cyl_length, bottle_dome_depth)
-Working_Memory.bottle_length = bottle_length
-
-#Find thickness and outer radius of the tank
-
-bottle_liner_thickness = bottle_contour["thickness"]
-Working_Memory.bottle_liner_thickness = bottle_liner_thickness
-bottle_overwrap_thickness = run_netting(bottle_radius, bottle_pressure, bottle_safety_factor, bottle_boss_opening, fibre_allowable_stress, translation_efficiency, fibre_volume_fraction, al_yield_strength, "Nitrogen")
-bottle_total_thickness = bottle_overwrap_thickness + bottle_liner_thickness
-
-bottle_outer_radius = bottle_radius + bottle_total_thickness
+nitrogen_size_results = size_tank(V_nitrogen, bottle_radius, bottle_pressure, bottle_safety_factor, bottle_boss_opening, al_yield_strength, fibre_allowable_stress, translation_efficiency, fibre_volume_fraction)
 
 #Print results
 
 print(f"{'.' * 50}")
-print(f"Length of nitrogen bottle cylinder:    {bottle_cyl_length} m")
-print(f"Total length of nitrogen bottle (without boss): {bottle_length} m")
-print(f"Thickness of nitrogen tank liner: {bottle_liner_thickness} m ({bottle_liner_thickness * 1000:.3f} mm)")
-print(f"Thickness of nitrogen tank overwrap: {bottle_overwrap_thickness} m ({bottle_overwrap_thickness * 1000:.3f} mm)")
-print(f"Thickness of nitrogen tank total: {bottle_total_thickness} m ({bottle_total_thickness * 1000:.3f} mm)")
-print(f"Outer radius of nitrogen tank: {bottle_outer_radius} m ({bottle_outer_radius * 1000:.3f} mm)")
+print(f"Length of nitrogen bottle cylinder:    {nitrogen_size_results['cylinder_length']} m")
+print(f"Total length of nitrogen bottle (without boss): {nitrogen_size_results['tank_length']} m")
+print(f"Thickness of nitrogen tank liner: {nitrogen_size_results['liner_thickness']} m ({nitrogen_size_results['liner_thickness'] * 1000:.3f} mm)")
+print(f"Thickness of nitrogen tank overwrap: {nitrogen_size_results['overwrap_thickness']} m ({nitrogen_size_results['overwrap_thickness'] * 1000:.3f} mm)")
+print(f"Thickness of nitrogen tank total: {nitrogen_size_results['total_thickness']} m ({nitrogen_size_results['total_thickness'] * 1000:.3f} mm)")
+print(f"Outer radius of nitrogen tank: {nitrogen_size_results['outer_radius']} m ({nitrogen_size_results['outer_radius'] * 1000:.3f} mm)")

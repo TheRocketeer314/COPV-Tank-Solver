@@ -11,9 +11,11 @@ min_temp = 20       #Minimum operating temperature in C
 max_temp = 35       #Maximum operating temperature in C
 ambient_temp = 30       #Ambient temperature in C
 
+
 # General Tank Properties (for dome contour plots)
 
-tank_radius = 0.052      #Radius in meters
+tank_diameter = 0.10
+tank_radius = tank_diameter / 2      #Radius in meters
 tank_length = 1         #Length in meters
 polar_boss_opening = 0.02       #Radius of polar boss opening in meters
 meop = 7e6      #Maximum expected operating pressure in Pa
