@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def plot_dome_profile(x_in, r_in, x_out, r_out, x_stop, r_stop, x_cap, r_cap, x_cap_in, r_cap_in, r_dome, polar_boss_opening, **kwargs):
+def plot_dome_profile(x_in, r_in, x_out, r_out, x_stop, r_stop, x_cap, r_cap, x_cap_in, 
+                      r_cap_in, r_dome, polar_boss_opening, **kwargs):
     # Plotting the dome only (with winding angle sanity check) and exporting the dome profile to CSV for CAD
 
     fig, (ax1, ax2) = plt.subplots(

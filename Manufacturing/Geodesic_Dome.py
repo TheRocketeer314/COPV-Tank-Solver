@@ -14,8 +14,10 @@ load_dotenv()  # Load environment variables from .env file
 DIRECTORY = os.getenv("DIRECTORY")  # Get the directory from environment variable
 os.chdir(DIRECTORY)  # Change working directory to the specified path
 
-netting_calculation = netting_calc(tank_radius, meop, safety_factor, fibre_allowable_stress, translation_efficiency, fibre_volume_fraction, al_yield_strength)
-thickness = netting_calculation["thickness"]
+netting_calculation = netting_calc(tank_radius, meop, safety_factor, fibre_allowable_stress, 
+                                   translation_efficiency, fibre_volume_fraction, al_yield_strength)
+
+thickness = netting_calculation["t_liner"]
 
 print ("Thickness: ", thickness, "m")
 
@@ -141,7 +143,8 @@ print(f"Depth of one dome = {dome_depth} m\n")
 contour = dict(
         x_in=x_in, r_in=r_in, x_out=x_out, r_out=r_out, 
         x_stop=x_stop, r_stop=r_stop, x_cap=x_cap, r_cap=r_cap, x_cap_in=x_cap_in, r_cap_in=r_cap_in,
-        r_dome=r_dome, polar_boss_opening=polar_boss_opening, dome_volume=dome_volume, dome_depth=dome_depth, thickness=thickness
+        r_dome=r_dome, polar_boss_opening=polar_boss_opening, dome_volume=dome_volume, dome_depth=dome_depth, 
+        thickness=thickness
     )
 
 plot_dome_profile(**contour)

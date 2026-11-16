@@ -3,17 +3,21 @@ from Inputs import (tank_radius, meop, safety_factor, polar_boss_opening, fibre_
                     translation_efficiency, fibre_volume_fraction, al_yield_strength)
 import math
 from Calculations.Basic_Functions.results_table import print_table
+from Calculations.netting_calc import netting_calc
 
-thickness = (meop * safety_factor * tank_radius) / (al_yield_strength * 2) #m
+initial_calc = netting_calc(tank_radius, meop, safety_factor, fibre_allowable_stress, 
+                            translation_efficiency, fibre_volume_fraction, al_yield_strength)
 
-tank_outer_radius = tank_radius + thickness #m
+inner_radius = initial_calc["r_in"]
+
+thickness = initial_calc["t_liner"]
 
 max_design_pressure = meop * safety_factor #Pa
 
 hoop_load = max_design_pressure * tank_radius #Pa*m
 longitudinal_load = (max_design_pressure * tank_radius) / 2 #Pa*m
 
-wind_angle = math.asin(polar_boss_opening / tank_outer_radius) #radians
+wind_angle = math.asin(polar_boss_opening / tank_radius) #radians
 
 helical_wind_thickness = longitudinal_load / (fibre_allowable_stress * translation_efficiency * math.cos(wind_angle)**2) #m
 
@@ -27,6 +31,7 @@ hoop_layers_fraction = hoop_wind_thickness / (fibre_volume_fraction * total_wind
 print_table("Netting Analysis",
     [
         ("Tank Radius", f"{tank_radius:.4e} m", f"{tank_radius * 1000:.3f} mm"),
+        ("Inner Radius", f"{inner_radius:.4e} m", f"{inner_radius * 1000:.3f} mm"),
         ("MEOP", f"{meop:.4e} Pa", f"{meop / 1e6:.2f} MPa"),
         ("Safety Factor", f"{safety_factor}", ""),
         ("Polar Boss Opening", f"{polar_boss_opening:.4e} m", f"{polar_boss_opening * 1000:.3f} mm"),

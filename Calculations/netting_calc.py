@@ -1,4 +1,6 @@
-def netting_calc(tank_radius, meop, safety_factor, fibre_allowable_stress, translation_efficiency, fibre_volume_fraction, al_yield_strength):
+def netting_calc(tank_radius, meop, safety_factor, 
+                 fibre_allowable_stress, translation_efficiency, 
+                 fibre_volume_fraction, al_yield_strength):
     # NOTE: tank_radius is now the OUTER radius of the overwrap
     tank_outer_radius = tank_radius #m
 

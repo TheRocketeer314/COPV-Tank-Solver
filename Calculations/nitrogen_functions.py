@@ -14,10 +14,10 @@ def mean_inlet_enthalpy(T0, P0, P_end, n=200):
     h_mid = 0.5*(h[:-1] + h[1:])
     return np.sum(h_mid*dm)/np.sum(dm)
 
-def burn_gas_mass(T0, v_u0, v_liq, p_ullage, h_in):
+def burn_gas_mass(T0, v_u0, v_liq, p_ullage, h_in, p_n2_0):
     v_u1 = v_u0 + v_liq
-    m1   = v_u0 * density_TP(T0, p_ullage, "N2")
-    u1   = mass_internal_energy_TP(T0, p_ullage, "N2")
+    m1   = v_u0 * density_TP(T0, p_n2_0, "N2")
+    u1   = mass_internal_energy_TP(T0, p_n2_0, "N2")
 
     def residual(T2):
         m2 = density_TP(T2, p_ullage, "N2") * v_u1
@@ -36,9 +36,11 @@ def nitrogen_required(ambient_temp, m_n2o, ullage_fraction, p_ullage, p_bottle,
     v_u0  = (ullage_fraction * v_liq) / (1 - ullage_fraction)
     p_end = p_reg + reg_margin
 
+    p_n2_0 = max(0.0, p_ullage - p_sat)
+    
     m_pad        = (p_ullage - p_sat) * v_u0 / (r_n2 * T0)
     h_in         = mean_inlet_enthalpy(T0, p_bottle, p_end)
-    m_burn, T2   = burn_gas_mass(T0, v_u0, v_liq, p_ullage, h_in)
+    m_burn, T2   = burn_gas_mass(T0, v_u0, v_liq, p_ullage, h_in, p_n2_0)
     m_delivered  = (m_pad + m_burn) * (1 + margin)
 
     return dict(m_pad=m_pad, m_burn=m_burn, m_delivered=m_delivered,
