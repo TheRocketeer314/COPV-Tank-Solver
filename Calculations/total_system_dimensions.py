@@ -4,7 +4,7 @@ def total_system_dimensions(nitrous_tank_length, bottle_length,
 
     # New dicts, so the inputs are left untouched
     nitrous_boss_lengths = {
-        name: (1.6 * length / 1000) - nitrous_liner_thickness
+        name: (1.6 * length / 1000) - nitrous_liner_thickness   # Add extra length safety factor and convert from mm to m and subtract liner thickness
         for name, length in nitrous_bosses.items()
     }
     bottle_boss_lengths = {
