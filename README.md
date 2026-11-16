@@ -11,19 +11,15 @@ From your inputs it calculates tank dimensions, wall thicknesses and the nitroge
 
 ```mermaid
 flowchart TD
-    A[Inputs/inputs.py] --> B[main.py]
-    B --> C[N2O tank sizing<br>oxidiser_script.py]
-    B --> D[N2 bottle sizing<br>pressurant_script.py]
-    D --> D1[N2 mass needed<br>nitrogen_functions.py]
-    D1 --> D2[Bottle volume]
-    C --> E[size_tank<br>volume_tank_sizing.py]
-    D2 --> E
-    E --> E1[Netting analysis<br>wall thicknesses]
-    E --> E2[Dome volume and depth<br>dome_dimensions.py]
-    E1 --> F[Cylinder length and total tank length]
-    E2 --> F
-    F --> G[total_system_dimensions.py<br>adds boss lengths]
-    G --> H[results/results_NNN.txt]
+    A[Inputs<br>inputs.py] --> B[main.py]
+    B --> C[Nitrous Oxide tank script<br>oxidiser_script.py]
+    B --> D[Nitrogen bottle script<br>pressurant_script.py]
+    D --> D1[Nitrogen mass needed<br>nitrogen_functions.py]
+    C --> E[Sizing Nitrous Oxide Tank<br>volume_tank_sizing.py]
+    D1 --> D2[Sizing Nitrogen Tank<br>volume_tank_sizing.py]
+    C --> F[total_system_dimensions.py<br>adds boss lengths]
+    D2 --> F
+    F --> G[Output results/results_NNN.txt]
 ```
 
 1. **Required volume.** For N2O, the liquid density comes from CoolProp at ambient temperature and MEOP, and the volume is the mass divided by density plus the ullage (the gas space left in the tank). For N2, the volume comes from the mass of gas needed to push the oxidiser out.

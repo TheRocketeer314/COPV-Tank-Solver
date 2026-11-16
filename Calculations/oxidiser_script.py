@@ -1,5 +1,4 @@
 
-from Calculations.converters import pres_pa_to_bar
 from Calculations.coolprop_functions import density_TP
 from Calculations.volume_tank_sizing import size_tank
 from Calculations.converters import temp_C_to_K
