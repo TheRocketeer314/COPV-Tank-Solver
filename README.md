@@ -17,9 +17,11 @@ flowchart TD
     D --> D1[Nitrogen mass needed<br>nitrogen_functions.py]
     C --> E[Sizing Tank<br>volume_tank_sizing.py]
     D1 --> E
-    C --> F[total_system_dimensions.py<br>adds boss lengths]
-    D --> F
-    F --> G[Output results/results_NNN.txt]
+    E --> F[Netting Calculations<br>netting_calc.py]
+    E --> G[Dome Dimensions<br>dome_dimensions.py]
+    C --> H[total_system_dimensions.py<br>adds boss lengths]
+    D --> H
+    H --> I[Output results/results_NNN.txt]
 ```
 
 1. **Required volume.** For N2O, the liquid density comes from CoolProp at ambient temperature and MEOP, and the volume is the mass divided by density plus the ullage (the gas space left in the tank). For N2, the volume comes from the mass of gas needed to push the oxidiser out.
