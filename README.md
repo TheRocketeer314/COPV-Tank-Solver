@@ -15,10 +15,10 @@ flowchart TD
     B --> C[Nitrous Oxide tank script<br>oxidiser_script.py]
     B --> D[Nitrogen bottle script<br>pressurant_script.py]
     D --> D1[Nitrogen mass needed<br>nitrogen_functions.py]
-    C --> E[Sizing Nitrous Oxide Tank<br>volume_tank_sizing.py]
-    D1 --> D2[Sizing Nitrogen Tank<br>volume_tank_sizing.py]
+    C --> E[Sizing Tank<br>volume_tank_sizing.py]
+    D1 --> E
     C --> F[total_system_dimensions.py<br>adds boss lengths]
-    D2 --> F
+    D --> F
     F --> G[Output results/results_NNN.txt]
 ```
 
