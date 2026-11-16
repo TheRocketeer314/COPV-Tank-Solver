@@ -58,8 +58,8 @@ Nitrogen bottle
 -------------------------------------------------------------------------------------
 Parameter                                     Value           Converted Value
 -------------------------------------------------------------------------------------
-Total length                               0.3101 m                  310.1 mm
-Cylinder length                            0.2250 m                  225.0 mm
+Total length                               0.3300 m                  330.0 mm
+Cylinder length                            0.2449 m                  244.9 mm
 Tank outer radius                          0.0850 m                   85.0 mm
 Tank inner radius                          0.0734 m                   73.4 mm
 Liner thickness                        8.1573e-03 m                  8.157 mm
@@ -71,11 +71,11 @@ Nitrogen requirement
 Parameter                                     Value           Converted Value
 -------------------------------------------------------------------------------------
 Pad gas mass                              0.0031 kg                          
-Burn gas mass                             0.3328 kg                          
-Delivered N2 (+10%)                       0.3694 kg                          
-Stored N2 in bottle                       1.0197 kg                          
-Bottle volume                           0.004858 m³                   4.858 L
-Final ullage temp                          264.26 K                          
+Burn gas mass                             0.3561 kg                          
+Delivered N2 (+10%)                       0.3950 kg                          
+Stored N2 in bottle                       1.0905 kg                          
+Bottle volume                           0.005195 m³                   5.195 L
+Final ullage temp                          267.00 K                          
 -------------------------------------------------------------------------------------
 
 Total system length
@@ -83,7 +83,7 @@ Total system length
 Parameter                                     Value           Converted Value
 -------------------------------------------------------------------------------------
 Nitrous tank + bosses                      0.2698 m                          
-N2 bottle + bosses                         0.3418 m                          
-Tanks combined                             0.6116 m                          
-With plumbing                              0.6116 m                          
+N2 bottle + bosses                         0.3617 m                          
+Tanks combined                             0.6315 m                          
+With plumbing                              0.6315 m                          
 -------------------------------------------------------------------------------------
