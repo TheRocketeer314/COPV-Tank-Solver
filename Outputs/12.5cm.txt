@@ -12,7 +12,7 @@ Inputs: nitrous tank
 -------------------------------------------------------------------------------------
 Parameter                                     Value           Converted Value
 -------------------------------------------------------------------------------------
-Outer radius                               0.0750 m                   75.0 mm
+Outer radius                               0.0625 m                   62.5 mm
 Nitrous mass                               2.582 kg                          
 MEOP                                  7.0000e+06 Pa                  70.0 bar
 Safety factor                                     3                          
@@ -24,7 +24,7 @@ Inputs: nitrogen bottle
 -------------------------------------------------------------------------------------
 Parameter                                     Value           Converted Value
 -------------------------------------------------------------------------------------
-Outer radius                               0.0750 m                   75.0 mm
+Outer radius                               0.0625 m                   62.5 mm
 Bottle pressure                       2.0000e+07 Pa                 200.0 bar
 Regulator setpoint                    7.0000e+06 Pa                  70.0 bar
 Min reg margin                        2.0000e+06 Pa                  20.0 bar
@@ -46,24 +46,24 @@ Nitrous tank
 -------------------------------------------------------------------------------------
 Parameter                                     Value           Converted Value
 -------------------------------------------------------------------------------------
-Total length                               0.2741 m                  274.1 mm
-Cylinder length                            0.1870 m                  187.0 mm
-Tank outer radius                          0.0750 m                   75.0 mm
-Tank inner radius                          0.0711 m                   71.1 mm
-Liner thickness                        2.7668e-03 m                  2.767 mm
-Overwrap thickness                     1.0870e-03 m                  1.087 mm
+Total length                               0.3768 m                  376.8 mm
+Cylinder length                            0.3025 m                  302.5 mm
+Tank outer radius                          0.0625 m                   62.5 mm
+Tank inner radius                          0.0596 m                   59.6 mm
+Liner thickness                        2.0000e-03 m                  2.000 mm
+Overwrap thickness                     9.0580e-04 m                  0.906 mm
 -------------------------------------------------------------------------------------
 
 Nitrogen bottle
 -------------------------------------------------------------------------------------
 Parameter                                     Value           Converted Value
 -------------------------------------------------------------------------------------
-Total length                               0.4147 m                  414.7 mm
-Cylinder length                            0.3389 m                  338.9 mm
-Tank outer radius                          0.0750 m                   75.0 mm
-Tank inner radius                          0.0648 m                   64.8 mm
-Liner thickness                        7.1976e-03 m                  7.198 mm
-Overwrap thickness                     3.0242e-03 m                  3.024 mm
+Total length                               0.5286 m                  528.6 mm
+Cylinder length                            0.4582 m                  458.2 mm
+Tank outer radius                          0.0625 m                   62.5 mm
+Tank inner radius                          0.0570 m                   57.0 mm
+Liner thickness                        3.0000e-03 m                  3.000 mm
+Overwrap thickness                     2.5202e-03 m                  2.520 mm
 -------------------------------------------------------------------------------------
 
 Nitrogen requirement
@@ -82,8 +82,8 @@ Total system length
 -------------------------------------------------------------------------------------
 Parameter                                     Value           Converted Value
 -------------------------------------------------------------------------------------
-Nitrous tank + bosses                      0.3229 m                          
-N2 bottle + bosses                         0.4483 m                          
-Tanks combined                             0.7713 m                          
-With plumbing                              0.7713 m                          
+Nitrous tank + bosses                      0.4272 m                          
+N2 bottle + bosses                         0.5706 m                          
+Tanks combined                             0.9978 m                          
+With plumbing                              0.9978 m                          
 -------------------------------------------------------------------------------------

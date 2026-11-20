@@ -3,10 +3,12 @@ from Calculations.netting_calc import netting_calc
 from Calculations.basic_dimension_calc import cyl_volume, cyl_length, tank_length
 
 def size_tank(volume, radius, meop, safety_factor, boss_opening, al_yield_strength, 
-              fibre_allowable_stress, translation_efficiency, fibre_volume_fraction):
+              fibre_allowable_stress, translation_efficiency, fibre_volume_fraction, t_liner_min,
+              liner_elastic_modulus, fibre_elastic_modulus):
     
     netting_calculation = netting_calc(radius, meop, safety_factor, fibre_allowable_stress, 
-                                       translation_efficiency, fibre_volume_fraction, al_yield_strength)
+                                       translation_efficiency, fibre_volume_fraction, al_yield_strength,
+                                       boss_opening, t_liner_min, liner_elastic_modulus, fibre_elastic_modulus)
 
     inner_radius = netting_calculation["r_in"]
 

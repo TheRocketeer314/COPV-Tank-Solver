@@ -4,7 +4,8 @@ from Calculations.nitrogen_functions import nitrogen_required, nitrogen_bottle_v
 def bottle_sizing(ambient_temp, nitrous_mass, nitrous_ullage_fraction, ullage_pressure, 
                   bottle_pressure, regulator_pressure, reg_min_margin, R_nitrogen, bottle_radius, 
                   bottle_safety_factor, bottle_boss_opening, al_yield_strength, fibre_allowable_stress, 
-                  translation_efficiency, fibre_volume_fraction):
+                  translation_efficiency, fibre_volume_fraction, bottle_min_liner_thickness,
+                  liner_elastic_modulus, fibre_elastic_modulus):
     
     nitrogen_required_results = nitrogen_required(ambient_temp, nitrous_mass, nitrous_ullage_fraction, 
                                                 ullage_pressure, bottle_pressure, regulator_pressure, 
@@ -17,7 +18,8 @@ def bottle_sizing(ambient_temp, nitrous_mass, nitrous_ullage_fraction, ullage_pr
     nitrogen_size_results = size_tank(nitrogen_bottle_volume_results['volume'], bottle_radius, 
                                     bottle_pressure, bottle_safety_factor, bottle_boss_opening, 
                                     al_yield_strength, fibre_allowable_stress, translation_efficiency, 
-                                    fibre_volume_fraction)
+                                    fibre_volume_fraction, bottle_min_liner_thickness, 
+                                    liner_elastic_modulus, fibre_elastic_modulus)
 
     return {
         **nitrogen_size_results,           # tank_length, liner_thickness, ...

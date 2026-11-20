@@ -4,6 +4,8 @@ fibre_allowable_stress = 3.5e9      #Allowable stress of carbon fibre in Pa
 translation_efficiency = 0.85       #Efficiency of fibre transfer from winding machine to tank
 fibre_volume_fraction = 0.72        #Volume fraction of fibre in composite material
 al_yield_strength = 2.7e8       #Maximum yield strength of aluminium in Pa
+liner_elastic_modulus = 69e9       #Elastic modulus of aluminium in Pa
+fibre_elastic_modulus = 230e9      #Elastic modulus of carbon fibre in Pa
 
 
 # General operating conditions
@@ -22,15 +24,16 @@ meop = 7e6      #Maximum expected operating pressure in Pa
 safety_factor = 3       #Safety factor for tank design
 
 # Nitrous Tank Properties
-nitrous_diameter = 0.125       #Outer diameter in meters
+nitrous_diameter = 0.17       #Outer diameter in meters
 nitrous_radius = nitrous_diameter / 2      #Outer radius in meters
 nitrous_boss_opening = 0.02       #Radius of polar boss opening in meters
 nitrous_meop = 7e6      #Maximum expected operating pressure in Pa
 nitrous_safety_factor = 3       #Safety factor for tank design
 nitrous_ullage_fraction = 0.10       #Fraction of ullage in the tank
+nitrous_min_liner_thickness = 2.0e-3       #Minimum liner thickness in meters
 
 #Nitrogen Tank Properties
-bottle_diameter = 0.125       #Diameter in meters
+bottle_diameter = 0.17       #Diameter in meters
 bottle_radius = bottle_diameter / 2       #Radius in meters
 bottle_boss_opening = 0.02  #Radius of polar boss opening in meters
 bottle_safety_factor = 3    #Safety factor for nitrogen bottle
@@ -38,6 +41,7 @@ bottle_pressure = 2e7       #Pressure of the nitrogen bottle in Pa
 ullage_pressure = nitrous_meop       #Pressure of the ullage in the tank in Pa
 regulator_pressure = ullage_pressure      #Regulator set point pressure in Pa
 reg_min_margin = 2e6        #Minimum difference between end bottle pressure and regulator pressure in Pa; check from regulator datasheet
+bottle_min_liner_thickness = 3.0e-3       #Minimum liner thickness in meters
 
 # Fluid properties
 R_nitrogen = 296.8      #Specific gas constant for nitrogen in J/(kg*K)
