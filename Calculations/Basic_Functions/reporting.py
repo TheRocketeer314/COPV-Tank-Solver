@@ -49,6 +49,9 @@ def report(inputs, nitrous, bottle, system):
         ("Tank inner radius",  f"{nitrous['tank_inner_radius']:.4f} m", f"{nitrous['tank_inner_radius']*1000:.1f} mm"),
         ("Liner thickness",    f"{nitrous['liner_thickness']:.4e} m",   f"{nitrous['liner_thickness']*1000:.3f} mm"),
         ("Overwrap thickness", f"{nitrous['overwrap_thickness']:.4e} m", f"{nitrous['overwrap_thickness']*1000:.3f} mm"),
+        ("Tank mass",          f"{nitrous['total_mass']:.3f} kg",         ""),
+        ("Liner Mass",          f"{nitrous['liner_mass']:.3f} kg",         ""),
+        ("Overwrap Mass",          f"{nitrous['overwrap_mass']:.3f} kg",         ""),
     ])
     print_table("Nitrogen bottle", [
         ("Total length",       f"{bottle['tank_length']:.4f} m",        f"{bottle['tank_length']*1000:.1f} mm"),
@@ -57,6 +60,9 @@ def report(inputs, nitrous, bottle, system):
         ("Tank inner radius",  f"{bottle['tank_inner_radius']:.4f} m", f"{bottle['tank_inner_radius']*1000:.1f} mm"),
         ("Liner thickness",    f"{bottle['liner_thickness']:.4e} m",    f"{bottle['liner_thickness']*1000:.3f} mm"),
         ("Overwrap thickness", f"{bottle['overwrap_thickness']:.4e} m", f"{bottle['overwrap_thickness']*1000:.3f} mm"),
+        ("Tank mass",          f"{bottle['total_mass']:.3f} kg",         ""),
+        ("Liner Mass",          f"{bottle['liner_mass']:.3f} kg",         ""),
+        ("Overwrap Mass",          f"{bottle['overwrap_mass']:.3f} kg",         ""),
     ])
     print_table("Nitrogen requirement", [
         ("Pad gas mass",        f"{bottle['m_pad']:.4f} kg",       ""),
@@ -72,4 +78,5 @@ def report(inputs, nitrous, bottle, system):
         ("N2 bottle + bosses",    f"{system['total_bottle_length']:.4f} m",   ""),
         ("Tanks combined",        f"{system['combined_tanks_length']:.4f} m", ""),
         ("With plumbing",         f"{system['total_system_length']:.4f} m",   ""),
+        ("Total system mass",     f"{system['total_system_mass']:.3f} kg",    ""),
     ])

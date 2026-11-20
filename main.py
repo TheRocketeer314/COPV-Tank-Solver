@@ -18,7 +18,9 @@ def main():
                   nitrous_tank_length     = nitrous["tank_length"],
                   bottle_length           = bottle["tank_length"],
                   nitrous_liner_thickness = nitrous["liner_thickness"],
-                  bottle_liner_thickness  = bottle["liner_thickness"])
+                  bottle_liner_thickness  = bottle["liner_thickness"],
+                  nitrous_tank_mass       = nitrous["total_mass"],
+                  bottle_tank_mass        = bottle["total_mass"])
 
     out = next_results_file(RESULTS_DIR)
     with open(out, "w", encoding="utf-8") as f, redirect_stdout(f):

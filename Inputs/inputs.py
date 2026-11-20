@@ -6,6 +6,9 @@ fibre_volume_fraction = 0.72        #Volume fraction of fibre in composite mater
 al_yield_strength = 2.7e8       #Maximum yield strength of aluminium in Pa
 liner_elastic_modulus = 69e9       #Elastic modulus of aluminium in Pa
 fibre_elastic_modulus = 230e9      #Elastic modulus of carbon fibre in Pa
+al_density = 2700       #Density of aluminium in kg/m^3
+fibre_density = 1800    #Density of carbon fibre in kg/m^3
+resin_density = 1200     #Density of resin in kg/m^3
 
 
 # General operating conditions
@@ -23,8 +26,10 @@ polar_boss_opening = 0.02       #Radius of polar boss opening in meters
 meop = 7e6      #Maximum expected operating pressure in Pa
 safety_factor = 3       #Safety factor for tank design
 
+rocket_diameter = 0.17       #Diameter of the rocket in meters
+
 # Nitrous Tank Properties
-nitrous_diameter = 0.17       #Outer diameter in meters
+nitrous_diameter = rocket_diameter       #Outer diameter in meters
 nitrous_radius = nitrous_diameter / 2      #Outer radius in meters
 nitrous_boss_opening = 0.02       #Radius of polar boss opening in meters
 nitrous_meop = 7e6      #Maximum expected operating pressure in Pa
@@ -33,7 +38,7 @@ nitrous_ullage_fraction = 0.10       #Fraction of ullage in the tank
 nitrous_min_liner_thickness = 2.0e-3       #Minimum liner thickness in meters
 
 #Nitrogen Tank Properties
-bottle_diameter = 0.17       #Diameter in meters
+bottle_diameter = rocket_diameter      #Diameter in meters
 bottle_radius = bottle_diameter / 2       #Radius in meters
 bottle_boss_opening = 0.02  #Radius of polar boss opening in meters
 bottle_safety_factor = 3    #Safety factor for nitrogen bottle

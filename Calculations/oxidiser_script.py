@@ -2,12 +2,13 @@
 from Calculations.coolprop_functions import density_TP
 from Calculations.volume_tank_sizing import size_tank
 from Calculations.converters import temp_C_to_K
+from Calculations.tank_mass import tank_mass
 
 def nitrous_tank_sizing(nitrous_radius, nitrous_mass, nitrous_meop, 
                         nitrous_ullage_fraction, ambient_temp, nitrous_safety_factor, 
                         nitrous_boss_opening, al_yield_strength,fibre_allowable_stress,
                         translation_efficiency, fibre_volume_fraction, nitrous_min_liner_thickness,
-                        liner_elastic_modulus, fibre_elastic_modulus):
+                        liner_elastic_modulus, fibre_elastic_modulus, al_density, fibre_density, resin_density):
     
     ullage = nitrous_ullage_fraction
 
@@ -22,4 +23,12 @@ def nitrous_tank_sizing(nitrous_radius, nitrous_mass, nitrous_meop,
                                      translation_efficiency, fibre_volume_fraction, nitrous_min_liner_thickness, 
                                      liner_elastic_modulus, fibre_elastic_modulus)
 
-    return nitrous_size_results
+    nitrous_tank_mass = tank_mass(nitrous_size_results['liner_outer_radius'], nitrous_size_results['liner_thickness'], 
+                                  nitrous_size_results['overwrap_thickness'], nitrous_size_results['cylinder_length'],
+                                  nitrous_boss_opening, fibre_volume_fraction, 
+                                  al_density, fibre_density, resin_density)
+
+    return {
+        **nitrous_size_results,
+        **nitrous_tank_mass,
+        }

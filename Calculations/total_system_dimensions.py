@@ -1,5 +1,6 @@
 def total_system_dimensions(nitrous_tank_length, bottle_length,
                             nitrous_liner_thickness, bottle_liner_thickness,
+                            nitrous_tank_mass, bottle_tank_mass,
                             nitrous_bosses, bottle_bosses, plumbing_length):
 
     # New dicts, so the inputs are left untouched
@@ -18,6 +19,8 @@ def total_system_dimensions(nitrous_tank_length, bottle_length,
     combined_tanks_length = total_nitrous_length + total_bottle_length
     total_system_length   = combined_tanks_length + plumbing_length
 
+    total_system_mass = nitrous_tank_mass + bottle_tank_mass
+
     return dict(
         nitrous_boss_lengths  = nitrous_boss_lengths,
         bottle_boss_lengths   = bottle_boss_lengths,
@@ -25,4 +28,5 @@ def total_system_dimensions(nitrous_tank_length, bottle_length,
         total_bottle_length   = total_bottle_length,
         combined_tanks_length = combined_tanks_length,
         total_system_length   = total_system_length,
+        total_system_mass     = total_system_mass
     )

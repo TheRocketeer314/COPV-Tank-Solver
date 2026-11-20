@@ -52,6 +52,9 @@ Tank outer radius                          0.0750 m                   75.0 mm
 Tank inner radius                          0.0719 m                   71.9 mm
 Liner thickness                        2.0000e-03 m                  2.000 mm
 Overwrap thickness                     1.0870e-03 m                  1.087 mm
+Tank mass                                  0.983 kg                          
+Liner Mass                                 0.734 kg                          
+Overwrap Mass                              0.249 kg                          
 -------------------------------------------------------------------------------------
 
 Nitrogen bottle
@@ -64,6 +67,9 @@ Tank outer radius                          0.0750 m                   75.0 mm
 Tank inner radius                          0.0690 m                   69.0 mm
 Liner thickness                        3.0000e-03 m                  3.000 mm
 Overwrap thickness                     3.0242e-03 m                  3.024 mm
+Tank mass                                  2.352 kg                          
+Liner Mass                                 1.430 kg                          
+Overwrap Mass                              0.922 kg                          
 -------------------------------------------------------------------------------------
 
 Nitrogen requirement
@@ -86,4 +92,5 @@ Nitrous tank + bosses                      0.3197 m
 N2 bottle + bosses                         0.4129 m                          
 Tanks combined                             0.7325 m                          
 With plumbing                              0.7325 m                          
+Total system mass                          3.334 kg                          
 -------------------------------------------------------------------------------------
